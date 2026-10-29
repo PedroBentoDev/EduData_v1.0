@@ -1,0 +1,88 @@
+
+:root {
+  --color-primary: #174b78;
+  --color-primary-hover: #103b60;
+  --color-mint: #d0f6e4;
+  --color-text: #0f172a;
+  --color-background: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+
+
+/* ==========================================
+   DASHBOARD - MENU HAMBÚRGUER
+========================================== */
+
+/* Menu expandido no desktop */
+#dashboard-sidebar.dashboard-sidebar {
+  width: 256px;
+  transform: translateX(0);
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+/* Conteúdo acompanha a largura do menu */
+#dashboard-content.dashboard-content {
+  margin-left: 256px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Menu recolhido */
+#dashboard-sidebar.dashboard-sidebar.is-collapsed {
+  width: 80px;
+}
+
+#dashboard-sidebar.is-collapsed .sidebar-label {
+  display: none;
+}
+
+#dashboard-sidebar.is-collapsed .sidebar-link {
+  justify-content: center;
+  gap: 0;
+}
+
+#dashboard-sidebar.is-collapsed .sidebar-link > span:first-child {
+  width: auto;
+}
+
+/* Conteúdo quando o menu está recolhido */
+#dashboard-content.dashboard-content.menu-content-expanded {
+  margin-left: 80px;
+}
+
+/* Celular */
+@media (max-width: 767px) {
+  #dashboard-sidebar.dashboard-sidebar {
+    width: 256px;
+    transform: translateX(-100%);
+  }
+
+  #dashboard-sidebar.dashboard-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  #dashboard-content.dashboard-content,
+  #dashboard-content.dashboard-content.menu-content-expanded {
+    margin-left: 0;
+  }
+
+  #dashboard-sidebar .sidebar-label {
+    display: block;
+  }
+
+  #dashboard-sidebar .sidebar-link {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}
+
