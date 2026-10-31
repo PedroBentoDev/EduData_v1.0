@@ -30,32 +30,21 @@
 
 <body class="min-h-screen bg-[#F8FAFC] text-[#10243B]">
 
-  <!-- CABEÇALHO -->
+  <!-- ================= CABEÇALHO ================= -->
   <header
     class="flex h-16 items-center justify-between bg-[#10395E] px-5 text-white shadow-sm md:px-10"
   >
 
-    <!-- LOGO -->
+    <!-- LOGO EDUDATA -->
     <a
       href="../index.html"
       class="flex items-center gap-2"
     >
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
+      <img
+        src="../assets/logo.png"
+        alt="Logo EduData"
+        class="h-9 w-9 object-contain"
       >
-        <path
-          d="M12 5.5C9.8 3.8 6.6 3.5 3 4.4v12.2c3.6-.9 6.8-.6 9 1.1V5.5Z"
-          fill="#3B82F6"
-        />
-        <path
-          d="M12 5.5c2.2-1.7 5.4-2 9-1.1v12.2c-3.6-.9-6.8-.6-9 1.1V5.5Z"
-          fill="#10B981"
-        />
-      </svg>
 
       <span class="text-lg font-bold">
         EduData
@@ -65,9 +54,10 @@
     <span class="text-xs font-medium text-white/80">
       Plataforma educacional
     </span>
+
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
   <main
     class="flex min-h-[calc(100vh-128px)] items-center justify-center px-5 py-12"
   >
@@ -166,48 +156,32 @@
     </section>
   </main>
 
-  <!-- RODAPÉ -->
+  <!-- ================= RODAPÉ ================= -->
   <footer
     class="flex h-16 items-center justify-center border-t border-slate-200 bg-white px-5 text-center text-xs text-slate-400"
   >
     © EduData — Plataforma de dados educacionais
   </footer>
 
-  <!-- JAVASCRIPT -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
+      // Elemento que mostra o nome da funcionalidade
       const nomeFuncionalidade = document.getElementById(
         "nome-funcionalidade"
       );
 
-      const botaoVoltar = document.getElementById(
-        "botao-voltar"
-      );
-
-
+      // Lê os parâmetros da URL
       const parametros = new URLSearchParams(
         window.location.search
       );
 
       const funcionalidade = parametros.get("feature");
 
+      // Mostra a funcionalidade selecionada
       if (funcionalidade && nomeFuncionalidade) {
         nomeFuncionalidade.textContent = funcionalidade;
-      }
-
-      // Volta à página anterior, quando possível.
-      if (botaoVoltar) {
-        botaoVoltar.addEventListener("click", () => {
-          if (
-            document.referrer &&
-            new URL(document.referrer).origin === window.location.origin
-          ) {
-            window.history.back();
-          } else {
-            window.location.assign("./dashboard.html");
-          }
-        });
       }
 
     });

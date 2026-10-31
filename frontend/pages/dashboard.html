@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,11 +8,19 @@
 
   <title>Dashboard | EduData</title>
 
+  <!-- TAILWIND CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
   <!-- GOOGLE MATERIAL SYMBOLS -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+  >
+
+  <!-- CSS DO PROJETO -->
   <link rel="stylesheet" href="../css/style.css">
 
+  <!-- VERIFICAÇÃO DO LOGIN DEMONSTRATIVO -->
   <script>
     if (sessionStorage.getItem("edudata_demo_login") !== "true") {
       window.location.replace("./login.html");
@@ -21,193 +30,301 @@
 
 <body class="min-h-screen bg-[#F8FAFC] text-[#10243B]">
 
-  <!-- CABEÇALHO -->
+  <!-- ================= CABEÇALHO ================= -->
   <header
-    class="fixed inset-x-0 top-0 z-30 flex h-16 items-center justify-between bg-[#10395E] px-5 text-white shadow-sm">
+    class="fixed inset-x-0 top-0 z-30 flex h-16 items-center justify-between bg-[#10395E] px-5 text-white shadow-sm"
+  >
+
     <div class="flex items-center gap-4">
 
       <!-- MENU HAMBÚRGUER -->
-      <button id="sidebar-toggle" type="button" aria-label="Alternar menu lateral" aria-controls="dashboard-sidebar"
+      <button
+        id="sidebar-toggle"
+        type="button"
+        aria-label="Alternar menu lateral"
+        aria-controls="dashboard-sidebar"
         aria-expanded="true"
-        class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30 transition hover:bg-white/10">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" />
+        class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30 transition hover:bg-white/10"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
-      <!-- LOGO -->
-      <a href="../index.html" class="flex shrink-0 items-center gap-2">
-        <img src="/frontend/assets/logo.png" alt="Logo EduData" class="h-9 w-9 object-contain" />
+      <!-- LOGO EDUDATA -->
+      <a
+        href="../index.html"
+        class="flex shrink-0 items-center gap-2"
+      >
+        <img
+          src="../assets/logo.png"
+          alt="Logo EduData"
+          class="h-9 w-9 object-contain"
+        >
 
-        <span class="text-lg font-bold tracking-tight"> EduData </span>
+        <span class="text-lg font-bold tracking-tight">
+          EduData
+        </span>
       </a>
 
     </div>
 
     <!-- ÁREA DO USUÁRIO -->
     <div class="flex items-center gap-3">
+
+      <!-- NOTIFICAÇÕES -->
       <button
-  type="button"
-  aria-label="Notificações"
-  class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30 hover:bg-white/10"
->
-  <span
-    class="material-symbols-outlined text-[20px]"
-    aria-hidden="true"
-  >
-    notifications
-  </span>
-</button>
-<div
-  class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30"
->
-  <span
-    class="material-symbols-outlined text-[20px]"
-    aria-hidden="true"
-  >
-    person
-  </span>
-</div>
+        type="button"
+        aria-label="Notificações"
+        class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30 hover:bg-white/10"
+      >
+        <span
+          class="material-symbols-outlined text-[20px]"
+          aria-hidden="true"
+        >
+          notifications
+        </span>
+      </button>
+
+      <!-- PERFIL -->
+      <div
+        class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30"
+      >
+        <span
+          class="material-symbols-outlined text-[20px]"
+          aria-hidden="true"
+        >
+          person
+        </span>
+      </div>
 
       <span class="hidden text-xs font-medium sm:inline">
         Área do usuário
       </span>
+
     </div>
   </header>
 
-  <!-- FUNDO ESCURECIDO NO CELULAR -->
-  <div id="sidebar-overlay" class="fixed inset-0 z-10 hidden bg-black/40 md:hidden" aria-hidden="true"></div>
+  <!-- ================= OVERLAY MOBILE ================= -->
+  <div
+    id="sidebar-overlay"
+    class="fixed inset-0 z-10 hidden bg-black/40 md:hidden"
+    aria-hidden="true"
+  ></div>
 
-  <!-- MENU LATERAL -->
-  <aside id="dashboard-sidebar"
-    class="dashboard-sidebar fixed bottom-0 left-0 top-16 z-20 flex flex-col overflow-hidden border-r border-slate-200 bg-white px-3 py-5">
+  <!-- ================= MENU LATERAL ================= -->
+  <aside
+    id="dashboard-sidebar"
+    class="dashboard-sidebar fixed bottom-0 left-0 top-16 z-20 flex flex-col overflow-hidden border-r border-slate-200 bg-white px-3 py-5"
+  >
 
-    <!-- PERFIL -->
+    <!-- PERFIL DO USUÁRIO -->
     <div class="mb-7 flex items-center gap-3 px-2">
-      <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#174B78] text-white">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          aria-hidden="true">
-          <circle cx="12" cy="8" r="4" />
-          <path d="M4 21a8 8 0 0 1 16 0" />
-        </svg>
+
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#174B78] text-white"
+      >
+        <span
+          class="material-symbols-outlined text-[24px]"
+          aria-hidden="true"
+        >
+          person
+        </span>
       </div>
 
       <div class="sidebar-label whitespace-nowrap">
-        <p class="text-sm font-bold">Área do usuário</p>
-        <p class="text-xs text-slate-500">Modo demonstração</p>
+        <p class="text-sm font-bold">
+          Área do usuário
+        </p>
+
+        <p class="text-xs text-slate-500">
+          Modo demonstração
+        </p>
       </div>
+
     </div>
 
     <!-- NAVEGAÇÃO -->
-    <nav aria-label="Menu lateral" class="flex flex-col gap-2">
+    <nav
+      aria-label="Menu lateral"
+      class="flex flex-col gap-2"
+    >
 
-     <a
-  href="./dashboard.html"
-  title="Visão geral"
-  aria-current="page"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg bg-[#DCEEFF] px-3 text-sm font-semibold text-[#174B78]"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      home
-    </span>
-  </span>
-
-  <span class="sidebar-label whitespace-nowrap">
-    Visão geral
-  </span>
-
+      <!-- VISÃO GERAL -->
       <a
-  href="NotFound.html"
-  title="Buscar"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      search
-    </span>
-  </span>
-
-  <span class="sidebar-label whitespace-nowrap">
-    Buscar
-  </span>
-</a>
-
-   <a
-  href="estatisticas.html"
-  title="Estatísticas"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      monitoring
-    </span>
-  </span>
-
-  <span class="sidebar-label whitespace-nowrap">
-    Estatísticas
-  </span>
-</a>
-
-      <a href="NotFound.html" title="Explorar por região"
-        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100">
+        href="./dashboard.html"
+        title="Visão geral"
+        aria-current="page"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg bg-[#DCEEFF] px-3 text-sm font-semibold text-[#174B78]"
+      >
         <span class="flex w-6 shrink-0 justify-center">
-          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            home
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Visão geral
+        </span>
+      </a>
+
+      <!-- BUSCAR ESCOLAS -->
+      <a
+        href="#buscar-escolas"
+        title="Buscar"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            search
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Buscar
+        </span>
+      </a>
+
+      <!-- ESTATÍSTICAS -->
+      <a
+        href="./estatisticas.html"
+        title="Estatísticas"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            monitoring
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Estatísticas
+        </span>
+      </a>
+
+      <!-- EXPLORAR POR REGIÃO -->
+      <a
+        href="./not-found.html?feature=Explorar%20por%20regi%C3%A3o"
+        title="Explorar por região"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
             map
           </span>
         </span>
-        <span class="sidebar-label whitespace-nowrap">Explorar por região</span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Explorar por região
+        </span>
       </a>
 
-      <a href="NotFound.html" title="Favoritos"
-        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100">
+      <!-- FAVORITOS -->
+      <a
+        href="./not-found.html?feature=Favoritos"
+        title="Favoritos"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
         <span class="flex w-6 shrink-0 justify-center">
-          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
             favorite
           </span>
         </span>
-        <span class="sidebar-label whitespace-nowrap">Favoritos</span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Favoritos
+        </span>
       </a>
+
     </nav>
 
     <!-- OPÇÕES INFERIORES -->
-    <div class="mt-auto flex flex-col gap-2 border-t border-slate-100 pt-4">
-<a
-  href="NotFound.html"
-  title="Configurações"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      settings
-    </span>
-  </span>
+    <div
+      class="mt-auto flex flex-col gap-2 border-t border-slate-100 pt-4"
+    >
 
-  <span class="sidebar-label whitespace-nowrap">
-    Configurações
-  </span>
-</a>
-
-      <a href="../index.html" title="Sair"
-        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm text-red-500 hover:bg-red-50">
+      <!-- CONFIGURAÇÕES -->
+      <a
+        href="./not-found.html?feature=Configura%C3%A7%C3%B5es"
+        title="Configurações"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
         <span class="flex w-6 shrink-0 justify-center">
-          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            settings
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Configurações
+        </span>
+      </a>
+
+      <!-- SAIR -->
+      <a
+        href="../index.html"
+        title="Sair"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm text-red-500 hover:bg-red-50"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
             logout
           </span>
         </span>
-        <span class="sidebar-label whitespace-nowrap">Sair</span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Sair
+        </span>
       </a>
+
     </div>
+
   </aside>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main id="dashboard-content" class="dashboard-content min-h-screen pt-20">
+  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+  <main
+    id="dashboard-content"
+    class="dashboard-content min-h-screen pt-20"
+  >
+
     <div class="mx-auto max-w-6xl px-5 py-7 lg:px-10">
 
-      <!-- BOAS-VINDAS -->
+      <!-- ================= BOAS-VINDAS ================= -->
       <section
-        class="flex flex-col items-center justify-between gap-5 rounded-2xl bg-[#D0F6E4] px-7 py-7 sm:flex-row sm:px-9">
+        class="flex flex-col items-center justify-between gap-5 rounded-2xl bg-[#D0F6E4] px-7 py-7 sm:flex-row sm:px-9"
+      >
+
         <div>
           <h1 class="text-2xl font-extrabold text-[#17365D]">
             Olá, seja bem-vindo!
@@ -219,94 +336,161 @@
             por região.
           </p>
 
-          <a href="#buscar-escolas"
-            class="mt-4 inline-flex rounded-md bg-[#10395E] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#174B78]">
+          <a
+            href="#buscar-escolas"
+            class="mt-4 inline-flex rounded-md bg-[#10395E] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#174B78]"
+          >
             Explorar escolas
           </a>
         </div>
 
-        <!-- ESPAÇO PARA SUA IMAGEM -->
+        <!-- IMAGEM DE BOAS-VINDAS -->
         <div
-          class="flex h-32 w-36 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-dashed border-[#85CBA7]">
-          <img src="../assets/cardSaudacao.png" alt="Ilustração educacional do EduData"
-            class="h-full w-full object-contain" loading="lazy">
+          class="flex h-32 w-36 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-dashed border-[#85CBA7]"
+        >
+          <img
+            src="../assets/cardSaudacao.png"
+            alt="Ilustração educacional do EduData"
+            class="h-full w-full object-contain"
+            loading="lazy"
+          >
         </div>
+
       </section>
 
-      <!-- INDICADORES: CARDS ATUALIZADOS -->
-      <section id="indicadores" class="mt-7 scroll-mt-24">
+      <!-- ================= INDICADORES ================= -->
+      <section
+        id="indicadores"
+        class="mt-7 scroll-mt-24"
+      >
+
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
           <!-- CARD 1: TOTAL DE ESCOLAS -->
           <article class="rounded-xl bg-[#D0F6E4] p-5">
-            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white">
-              <span class="material-symbols-outlined">
+
+            <div
+              class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white"
+            >
+              <span
+                class="material-symbols-outlined"
+                aria-hidden="true"
+              >
                 school
               </span>
             </div>
-            <p class="text-xs text-[#475569]">Total de escolas</p>
+
+            <p class="text-xs text-[#475569]">
+              Total de escolas
+            </p>
+
             <p class="mt-1 text-2xl font-extrabold text-[#17365D]">
               <span id="total-escolas">—</span>
             </p>
+
             <p class="mt-1 text-xs text-[#475569]">
               Dados da API EduData
             </p>
+
           </article>
 
           <!-- CARD 2: ESCOLAS COM INTERNET -->
           <article class="rounded-xl bg-[#D0F6E4] p-5">
-            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white">
-              <span class="material-symbols-outlined">
+
+            <div
+              class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white"
+            >
+              <span
+                class="material-symbols-outlined"
+                aria-hidden="true"
+              >
                 network_check
               </span>
             </div>
-            <p class="text-xs text-[#475569]">Escolas com internet</p>
+
+            <p class="text-xs text-[#475569]">
+              Escolas com internet
+            </p>
+
             <p class="mt-1 text-2xl font-extrabold text-[#17365D]">
               <span id="total-internet">—</span>
             </p>
+
             <p class="mt-1 text-xs text-[#475569]">
               Dados da API EduData
             </p>
+
           </article>
 
           <!-- CARD 3: INTERNET PARA ALUNOS -->
           <article class="rounded-xl bg-[#D0F6E4] p-5">
-            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white">
-              <span class="material-symbols-outlined">
+
+            <div
+              class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white"
+            >
+              <span
+                class="material-symbols-outlined"
+                aria-hidden="true"
+              >
                 database
               </span>
             </div>
-            <p class="text-xs text-[#475569]">Internet para alunos</p>
+
+            <p class="text-xs text-[#475569]">
+              Internet para alunos
+            </p>
+
             <p class="mt-1 text-2xl font-extrabold text-[#17365D]">
               <span id="total-internet-alunos">—</span>
             </p>
+
             <p class="mt-1 text-xs text-[#475569]">
-              Dados da API EduData
+              Escolas com internet disponível aos alunos
             </p>
+
           </article>
 
           <!-- CARD 4: ESCOLAS COM BIBLIOTECA -->
           <article class="rounded-xl bg-[#D0F6E4] p-5">
-            <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white">
-              <span class="material-symbols-outlined">
+
+            <div
+              class="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#42D98A] text-white"
+            >
+              <span
+                class="material-symbols-outlined"
+                aria-hidden="true"
+              >
                 local_library
               </span>
             </div>
-            <p class="text-xs text-[#475569]">Escolas com biblioteca</p>
+
+            <p class="text-xs text-[#475569]">
+              Escolas com biblioteca
+            </p>
+
             <p class="mt-1 text-2xl font-extrabold text-[#17365D]">
               <span id="total-biblioteca">—</span>
             </p>
+
             <p class="mt-1 text-xs text-[#475569]">
               Dados da API EduData
             </p>
+
           </article>
 
         </div>
+
       </section>
 
-      <!-- BUSCA DE ESCOLAS -->
-      <section id="buscar-escolas" class="mt-8 scroll-mt-24">
-        <div class="max-w-[520px] rounded-xl bg-[#10395E] p-7 text-white">
+      <!-- ================= BUSCA DE ESCOLAS ================= -->
+      <section
+        id="buscar-escolas"
+        class="mt-8 scroll-mt-24"
+      >
+
+        <div
+          class="max-w-[520px] rounded-xl bg-[#10395E] p-7 text-white"
+        >
 
           <h2 class="text-2xl font-extrabold">
             Encontre escolas.
@@ -317,50 +501,103 @@
             para consultar escolas disponíveis.
           </p>
 
-          <form id="form-busca-escolas" class="mt-5 space-y-4">
+          <form
+            id="form-busca-escolas"
+            class="mt-5 space-y-4"
+          >
+
+            <!-- UF -->
             <div>
-              <label for="filtro-uf" class="mb-1.5 block text-xs font-semibold">
+              <label
+                for="filtro-uf"
+                class="mb-1.5 block text-xs font-semibold"
+              >
                 UF
               </label>
-              <select id="filtro-uf" name="state" required
-                class="h-10 w-full rounded-full bg-white px-4 text-sm text-[#10243B] outline-none focus:ring-2 focus:ring-emerald-300">
-                <option value="">Carregando estados...</option>
+
+              <select
+                id="filtro-uf"
+                name="state"
+                required
+                class="h-10 w-full rounded-full bg-white px-4 text-sm text-[#10243B] outline-none focus:ring-2 focus:ring-emerald-300"
+              >
+                <option value="">
+                  Carregando estados...
+                </option>
               </select>
             </div>
 
+            <!-- MUNICÍPIO -->
             <div>
-              <label for="filtro-municipio" class="mb-1.5 block text-xs font-semibold">
+              <label
+                for="filtro-municipio"
+                class="mb-1.5 block text-xs font-semibold"
+              >
                 Município
               </label>
 
-              <input id="filtro-municipio" name="city" type="text" placeholder="Digite o município" required
-                class="h-10 w-full rounded-full bg-white px-4 text-sm text-[#10243B] outline-none focus:ring-2 focus:ring-emerald-300">
+              <input
+                id="filtro-municipio"
+                name="city"
+                type="text"
+                placeholder="Digite o município"
+                required
+                class="h-10 w-full rounded-full bg-white px-4 text-sm text-[#10243B] outline-none focus:ring-2 focus:ring-emerald-300"
+              >
             </div>
 
-            <button type="submit"
-              class="inline-flex items-center gap-2 rounded-full bg-[#2566A1] px-6 py-2.5 text-xs font-semibold text-white hover:bg-[#347EBB]">
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">
+            <!-- BOTÃO BUSCAR -->
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 rounded-full bg-[#2566A1] px-6 py-2.5 text-xs font-semibold text-white hover:bg-[#347EBB]"
+            >
+              <span
+                class="material-symbols-outlined text-[18px]"
+                aria-hidden="true"
+              >
                 search
               </span>
+
               Buscar escolas
             </button>
 
-            <p id="mensagem-busca" role="status" aria-live="polite" class="mt-3 text-sm text-slate-600">
+            <!-- MENSAGEM DA BUSCA -->
+            <p
+              id="mensagem-busca"
+              role="status"
+              aria-live="polite"
+              class="mt-3 text-sm text-slate-200"
+            >
               Selecione uma UF e informe um município.
             </p>
+
           </form>
 
-          <p id="school-search-message" role="status" aria-live="polite" class="mt-4 hidden text-xs text-white/90"></p>
+          <p
+            id="school-search-message"
+            role="status"
+            aria-live="polite"
+            class="mt-4 hidden text-xs text-white/90"
+          ></p>
+
         </div>
+
       </section>
 
     </div>
+
   </main>
 
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <!-- API EDUDATA -->
   <script src="../js/api.js" defer></script>
+
+  <!-- FUNCIONALIDADES GERAIS -->
   <script src="../js/main.js" defer></script>
+
+  <!-- MENU LATERAL -->
   <script src="../js/menuLateral.js" defer></script>
 
 </body>
-
 </html>

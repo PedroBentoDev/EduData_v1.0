@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,8 +11,12 @@
 
   <!-- TAILWIND CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- MATERIAL SYMBOLS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+  >
 
   <!-- CSS DO PROJETO -->
   <link rel="stylesheet" href="../css/style.css">
@@ -26,10 +31,7 @@
 
 <body class="min-h-screen bg-[#F8FAFC] text-[#10243B]">
 
-  <!-- ==========================================
-       CABEÇALHO
-  ========================================== -->
-
+  <!-- ================= CABEÇALHO ================= -->
   <header
     class="fixed inset-x-0 top-0 z-30 flex h-16 items-center justify-between bg-[#10395E] px-5 text-white shadow-sm"
   >
@@ -56,33 +58,23 @@
           stroke-linejoin="round"
           aria-hidden="true"
         >
-          <path d="M4 6h16M4 12h16M4 18h16"/>
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
       <!-- LOGO -->
       <a href="../index.html" class="flex items-center gap-2">
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
+        <img
+          src="../assets/logo.png"
+          alt="Logo EduData"
+          class="h-9 w-9 object-contain"
         >
-          <path
-            d="M12 5.5C9.8 3.8 6.6 3.5 3 4.4v12.2c3.6-.9 6.8-.6 9 1.1V5.5Z"
-            fill="#3B82F6"
-          />
-          <path
-            d="M12 5.5c2.2-1.7 5.4-2 9-1.1v12.2c-3.6-.9-6.8-.6-9 1.1V5.5Z"
-            fill="#10B981"
-          />
-        </svg>
 
         <span class="text-lg font-bold">
           EduData
         </span>
       </a>
+
     </div>
 
     <!-- ÁREA DO USUÁRIO -->
@@ -93,194 +85,236 @@
         aria-label="Notificações"
         class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30 hover:bg-white/10"
       >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+        <span
+          class="material-symbols-outlined text-[20px]"
           aria-hidden="true"
         >
-          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
-          <path d="M10 21h4"/>
-        </svg>
+          notifications
+        </span>
       </button>
 
       <div
         class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/30"
       >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+        <span
+          class="material-symbols-outlined text-[20px]"
           aria-hidden="true"
         >
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M4 21a8 8 0 0 1 16 0"/>
-        </svg>
+          person
+        </span>
       </div>
 
       <span class="hidden text-xs font-medium sm:inline">
         Área do usuário
       </span>
+
     </div>
   </header>
 
-  <!-- ==========================================
-       OVERLAY PARA CELULAR
-  ========================================== -->
-
+  <!-- ================= OVERLAY MOBILE ================= -->
   <div
     id="sidebar-overlay"
     class="fixed inset-0 z-10 hidden bg-black/40 md:hidden"
     aria-hidden="true"
   ></div>
 
-  <!-- ==========================================
-       MENU LATERAL
-  ========================================== -->
-
-  <!-- MENU LATERAL -->
-  <aside id="dashboard-sidebar"
-    class="dashboard-sidebar fixed bottom-0 left-0 top-16 z-20 flex flex-col overflow-hidden border-r border-slate-200 bg-white px-3 py-5">
+  <!-- ================= MENU LATERAL ================= -->
+  <aside
+    id="dashboard-sidebar"
+    class="dashboard-sidebar fixed bottom-0 left-0 top-16 z-20 flex flex-col overflow-hidden border-r border-slate-200 bg-white px-3 py-5"
+  >
 
     <!-- PERFIL -->
     <div class="mb-7 flex items-center gap-3 px-2">
-      <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#174B78] text-white">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          aria-hidden="true">
-          <circle cx="12" cy="8" r="4" />
-          <path d="M4 21a8 8 0 0 1 16 0" />
-        </svg>
+
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#174B78] text-white"
+      >
+        <span
+          class="material-symbols-outlined text-[24px]"
+          aria-hidden="true"
+        >
+          person
+        </span>
       </div>
 
       <div class="sidebar-label whitespace-nowrap">
-        <p class="text-sm font-bold">Área do usuário</p>
-        <p class="text-xs text-slate-500">Modo demonstração</p>
+        <p class="text-sm font-bold">
+          Área do usuário
+        </p>
+
+        <p class="text-xs text-slate-500">
+          Modo demonstração
+        </p>
       </div>
+
     </div>
 
     <!-- NAVEGAÇÃO -->
-    <nav aria-label="Menu lateral" class="flex flex-col gap-2">
+    <nav
+      aria-label="Menu lateral"
+      class="flex flex-col gap-2"
+    >
 
-     <a
-  href="./dashboard.html"
-  title="Visão geral"
-  aria-current="page"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg bg-[#DCEEFF] px-3 text-sm font-semibold text-[#174B78]"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      home
-    </span>
-  </span>
-
-  <span class="sidebar-label whitespace-nowrap">
-    Visão geral
-  </span>
-
+      <!-- VISÃO GERAL -->
       <a
-  href="#buscar-escolas"
-  title="Buscar"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      search
-    </span>
-  </span>
-
-  <span class="sidebar-label whitespace-nowrap">
-    Buscar
-  </span>
-</a>
-
-   <a
-  href="estatisticas.html"
-  title="Estatísticas"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      monitoring
-    </span>
-  </span>
-
-  <span class="sidebar-label whitespace-nowrap">
-    Estatísticas
-  </span>
-</a>
-
-      <a href="#aviso" title="Explorar por região"
-        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100">
+        href="./dashboard.html"
+        title="Visão geral"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
         <span class="flex w-6 shrink-0 justify-center">
-          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            home
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Visão geral
+        </span>
+      </a>
+
+      <!-- BUSCAR -->
+      <a
+        href="./dashboard.html#buscar-escolas"
+        title="Buscar"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            search
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Buscar
+        </span>
+      </a>
+
+      <!-- ESTATÍSTICAS - PÁGINA ATIVA -->
+      <a
+        href="./estatisticas.html"
+        title="Estatísticas"
+        aria-current="page"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg bg-[#DCEEFF] px-3 text-sm font-semibold text-[#174B78]"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            monitoring
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Estatísticas
+        </span>
+      </a>
+
+      <!-- EXPLORAR POR REGIÃO -->
+      <a
+        href="./not-found.html?feature=Explorar%20por%20regi%C3%A3o"
+        title="Explorar por região"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
             map
           </span>
         </span>
-        <span class="sidebar-label whitespace-nowrap">Explorar por região</span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Explorar por região
+        </span>
       </a>
 
-      <a href="#aviso" title="Favoritos"
-        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100">
+      <!-- FAVORITOS -->
+      <a
+        href="./not-found.html?feature=Favoritos"
+        title="Favoritos"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
         <span class="flex w-6 shrink-0 justify-center">
-          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
             favorite
           </span>
         </span>
-        <span class="sidebar-label whitespace-nowrap">Favoritos</span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Favoritos
+        </span>
       </a>
+
     </nav>
 
     <!-- OPÇÕES INFERIORES -->
-    <div class="mt-auto flex flex-col gap-2 border-t border-slate-100 pt-4">
-<a
-  href="#aviso"
-  title="Configurações"
-  class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
->
-  <span class="flex w-6 shrink-0 justify-center">
-    <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
-      settings
-    </span>
-  </span>
+    <div
+      class="mt-auto flex flex-col gap-2 border-t border-slate-100 pt-4"
+    >
 
-  <span class="sidebar-label whitespace-nowrap">
-    Configurações
-  </span>
-</a>
-
-      <a href="../index.html" title="Sair"
-        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm text-red-500 hover:bg-red-50">
+      <!-- CONFIGURAÇÕES -->
+      <a
+        href="./not-found.html?feature=Configura%C3%A7%C3%B5es"
+        title="Configurações"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm hover:bg-slate-100"
+      >
         <span class="flex w-6 shrink-0 justify-center">
-          <span class="material-symbols-outlined text-[22px]" aria-hidden="true">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
+            settings
+          </span>
+        </span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Configurações
+        </span>
+      </a>
+
+      <!-- SAIR -->
+      <a
+        href="../index.html"
+        title="Sair"
+        class="sidebar-link flex h-11 items-center gap-4 rounded-lg px-3 text-sm text-red-500 hover:bg-red-50"
+      >
+        <span class="flex w-6 shrink-0 justify-center">
+          <span
+            class="material-symbols-outlined text-[22px]"
+            aria-hidden="true"
+          >
             logout
           </span>
         </span>
-        <span class="sidebar-label whitespace-nowrap">Sair</span>
+
+        <span class="sidebar-label whitespace-nowrap">
+          Sair
+        </span>
       </a>
+
     </div>
+
   </aside>
 
-
-  <!-- CONTEÚDO PRINCIPAL -->
-
+  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
   <main
     id="dashboard-content"
     class="dashboard-content min-h-screen pt-16 transition-all duration-300"
   >
 
-    <section
-      class="mx-auto w-full max-w-7xl px-5 py-7 md:px-9"
-    >
+    <section class="mx-auto w-full max-w-7xl px-5 py-7 md:px-9">
 
       <!-- TÍTULO -->
       <div class="mb-6">
@@ -294,10 +328,7 @@
         </p>
       </div>
 
-      <!-- ==========================================
-           FILTROS DE CONSULTA
-      ========================================== -->
-
+      <!-- ================= FILTROS ================= -->
       <form
         id="form-estatisticas"
         class="mb-4 flex flex-wrap items-end gap-4"
@@ -305,7 +336,6 @@
 
         <!-- UF -->
         <div class="min-w-40 flex-1">
-
           <label
             for="estatisticas-uf"
             class="mb-2 block text-sm font-medium text-[#12395c]"
@@ -317,10 +347,7 @@
             id="estatisticas-uf"
             class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
           >
-            <option value="">
-              Selecione uma UF
-            </option>
-
+            <option value="">Selecione uma UF</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -353,7 +380,6 @@
 
         <!-- MUNICÍPIO -->
         <div class="min-w-48 flex-[2]">
-
           <label
             for="estatisticas-municipio"
             class="mb-2 block text-sm font-medium text-[#12395c]"
@@ -369,7 +395,7 @@
           >
         </div>
 
-        <!-- BOTÃO -->
+        <!-- CONSULTAR -->
         <button
           type="submit"
           class="rounded-xl bg-[#12395c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1b527e]"
@@ -389,19 +415,20 @@
         Selecione uma UF ou informe um município para consultar.
       </p>
 
-      <!-- ==========================================
-           CARDS DE INDICADORES
-      ========================================== -->
-
+      <!-- ================= CARDS ================= -->
       <div
         class="mb-7 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
       >
 
-        <!-- CARD 1: TOTAL DE ESCOLAS -->
+        <!-- TOTAL DE ESCOLAS -->
         <article class="rounded-xl bg-[#e8f9f1] p-5">
-
           <div class="mb-3 text-3xl text-emerald-500">
-            ♧
+            <span
+              class="material-symbols-outlined text-[32px]"
+              aria-hidden="true"
+            >
+              school
+            </span>
           </div>
 
           <p
@@ -420,11 +447,15 @@
           </p>
         </article>
 
-        <!-- CARD 2: ESCOLAS COM INTERNET -->
+        <!-- ESCOLAS COM INTERNET -->
         <article class="rounded-xl bg-[#eaf4ff] p-5">
-
           <div class="mb-3 text-3xl text-blue-500">
-            ▣
+            <span
+              class="material-symbols-outlined text-[32px]"
+              aria-hidden="true"
+            >
+              wifi
+            </span>
           </div>
 
           <p
@@ -443,11 +474,15 @@
           </p>
         </article>
 
-        <!-- CARD 3: ESCOLAS COM BIBLIOTECA -->
+        <!-- ESCOLAS COM BIBLIOTECA -->
         <article class="rounded-xl bg-[#f4edff] p-5">
-
           <div class="mb-3 text-3xl text-violet-500">
-            ▢
+            <span
+              class="material-symbols-outlined text-[32px]"
+              aria-hidden="true"
+            >
+              local_library
+            </span>
           </div>
 
           <p
@@ -466,11 +501,15 @@
           </p>
         </article>
 
-        <!-- CARD 4: ESCOLAS COM RAMPA -->
+        <!-- ESCOLAS COM RAMPA -->
         <article class="rounded-xl bg-[#fff8e8] p-5">
-
           <div class="mb-3 text-3xl text-amber-500">
-            ♙
+            <span
+              class="material-symbols-outlined text-[32px]"
+              aria-hidden="true"
+            >
+              accessible
+            </span>
           </div>
 
           <p
@@ -491,22 +530,14 @@
 
       </div>
 
-      <!-- ==========================================
-           GRÁFICOS
-      ========================================== -->
-
-      <div
-        class="mb-7 grid grid-cols-1 gap-5 xl:grid-cols-2"
-      >
+      <!-- ================= GRÁFICOS ================= -->
+      <div class="mb-7 grid grid-cols-1 gap-5 xl:grid-cols-2">
 
         <!-- GRÁFICO DE BARRAS -->
         <article
           class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
         >
-
-          <h2
-            class="mb-1 text-base font-bold text-[#12395c]"
-          >
+          <h2 class="mb-1 text-base font-bold text-[#12395c]">
             Infraestrutura das escolas
           </h2>
 
@@ -523,10 +554,7 @@
         <article
           class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
         >
-
-          <h2
-            class="mb-1 text-base font-bold text-[#12395c]"
-          >
+          <h2 class="mb-1 text-base font-bold text-[#12395c]">
             Conectividade escolar
           </h2>
 
@@ -541,19 +569,13 @@
 
       </div>
 
-      <!-- ==========================================
-           TABELA DE INFRAESTRUTURA
-      ========================================== -->
-
+      <!-- ================= TABELA ================= -->
       <article
         class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
       >
 
         <div class="border-b border-slate-100 px-5 py-4">
-
-          <h2
-            class="text-base font-bold text-[#12395c]"
-          >
+          <h2 class="text-base font-bold text-[#12395c]">
             Indicadores de infraestrutura escolar
           </h2>
 
@@ -563,44 +585,28 @@
         </div>
 
         <div class="overflow-x-auto">
+          <table class="w-full min-w-[520px] text-left text-sm">
 
-          <table
-            class="w-full min-w-[520px] text-left text-sm"
-          >
-
-            <thead
-              class="bg-slate-50 text-xs text-slate-600"
-            >
+            <thead class="bg-slate-50 text-xs text-slate-600">
               <tr>
-                <th class="px-5 py-3">
-                  Posição
-                </th>
-
-                <th class="px-5 py-3">
-                  Indicador
-                </th>
-
-                <th class="px-5 py-3 text-right">
-                  Escolas
-                </th>
+                <th class="px-5 py-3">Posição</th>
+                <th class="px-5 py-3">Indicador</th>
+                <th class="px-5 py-3 text-right">Escolas</th>
               </tr>
             </thead>
 
             <tbody
               id="tabela-municipios"
               class="divide-y divide-slate-100 text-[#12395c]"
-            >
-            </tbody>
+            ></tbody>
 
           </table>
         </div>
+
       </article>
 
       <!-- AVISO -->
-      <p
-        id="aviso"
-        class="mt-4 text-xs text-slate-400"
-      >
+      <p id="aviso" class="mt-4 text-xs text-slate-400">
         Indicadores consultados na API EduData.
         Os resultados correspondem à UF ou ao município pesquisado.
       </p>
@@ -608,9 +614,7 @@
     </section>
   </main>
 
-  <!-- ==========================================
-       SCRIPTS
-  ========================================== -->
+  <!-- ================= SCRIPTS ================= -->
 
   <!-- CHART.JS -->
   <script
@@ -631,5 +635,3 @@
 
 </body>
 </html>
-
-
